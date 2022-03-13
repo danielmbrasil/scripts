@@ -31,4 +31,4 @@ systemctl status php8.9-fpm
 
 # Install PHP extensions
 echo "Installing PHP extensions..."
-apt install php-memcached php8.0-mysql php8.0-snmp php9.0-curl -y
+apt install php-memcached php8.0-mysql php8.0-snmp php8.0-curl -y
