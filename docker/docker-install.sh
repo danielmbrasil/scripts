@@ -9,12 +9,13 @@
 
 echo "Uninstalling old Docker versions (if any exists)..."
 
-apt-get remove docker docker-engine docker.io containerd runc
+apt-get remove --purge docker docker-engine docker.io containerd runc
+rm -rf /etc/apt/keyrings/docker.gpg 2> /dev/null
 
 echo "Setting up Docker repository..."
 
 apt-get update
-apt-get install ca-certificates curl gnupg lsb-release
+apt-get install ca-certificates curl gnupg lsb-release -y
 
 echo "Adding Docker's official GPG key..."
 
@@ -29,7 +30,7 @@ chmod a+r /etc/apt/keyrings/docker.gpg # to avoid GPG erros
 
 echo "Installing Docker..."
 apt-get update
-apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 
 echo "Appending ${USER} to Docker group..."
 usermod -aG docker $USER
